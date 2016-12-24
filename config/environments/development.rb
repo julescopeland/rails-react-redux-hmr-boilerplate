@@ -45,6 +45,14 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # In development, send requests containing "*webpack_bundle.js" to the
+  # webpack-dev-server running on localhost:8080
+  config.action_controller.asset_host = Proc.new { |source|
+    if source =~ /webpack_bundle\.js$/i
+      "http://localhost:8080"
+    end
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
