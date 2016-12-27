@@ -4,10 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as HomeActions from '../actions/homeActions';
 
+import NavBar from './layout/Nav'
+
 class HomeApp extends Component {
   render() {
     return (
       <div id="home">
+        <NavBar />
         <h1>Home app</h1>
       </div>
     )
